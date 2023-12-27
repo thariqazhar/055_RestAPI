@@ -13,3 +13,8 @@ data class InsertUiEvent(
     val alamat: String = "",
     val nohp: String = ""
 )
+
+
+data class InsertUiState(
+    val insertUiEvent: InsertUiEvent = InsertUiEvent()
+)
