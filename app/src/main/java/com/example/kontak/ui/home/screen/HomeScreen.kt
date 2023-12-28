@@ -63,7 +63,7 @@ fun HomeScreen(
             TopAppBarKontak(
                 title = DestinasiHome.titleRes,
                 canNavigateBack = false,
-                scrollBehavior = scrollBehavior
+                scrollBehavior = scrollBehavior,
             ) {}
         },
         floatingActionButton = {
@@ -85,20 +85,22 @@ fun HomeScreen(
                 viewModel.getKontak()
             },
             modifier = Modifier.padding(innerPadding),
-            onDetailClick = {
+            onDeleteClick = {
                 viewModel.deleteKontak(it.id)
                 viewModel.getKontak()
-            }
+            },
+            onDetailClick = onDetailClick
         )
     }
 }
-    @Composable
+
+@Composable
 fun HomeStatus(
     kontakUIState: KontakUIState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
     onDeleteClick: (Kontak) -> Unit = {},
-    onDetailClick: (Kontak) -> Unit
+    onDetailClick: (Int) -> Unit
 ){
     when (kontakUIState){
         is KontakUIState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
@@ -106,7 +108,7 @@ fun HomeStatus(
             kontak = kontakUIState.kontak,
             modifier = modifier.fillMaxWidth(),
             onDetailClick = {
-                onDetailClick(it)
+                onDetailClick(it.id)
             },
             onDeleteClick = {
                 onDeleteClick(it)

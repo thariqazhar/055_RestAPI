@@ -18,17 +18,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.kontak.R
-import com.example.kontak.ui.home.screen.HomeScreen
-import com.example.kontak.ui.home.viewmodel.HomeViewModel
-import com.example.kontak.ui.home.viewmodel.PenyediaViewModel
+import com.example.kontak.navigation.PengelolaHalaman
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KontakApp(
-    homeViewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
-){
+fun KontakApp(){
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -39,7 +34,7 @@ fun KontakApp(
                 .fillMaxSize()
                 .padding(it)
         ){
-
+            PengelolaHalaman()
         }
     }
 }
