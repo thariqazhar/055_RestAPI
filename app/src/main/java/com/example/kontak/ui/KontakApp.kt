@@ -23,17 +23,17 @@ import com.example.kontak.navigation.PengelolaHalaman
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KontakApp(){
+fun KontakApp() {
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = { TopAppBar(scrollBehavior = scrollBehavior) }
+        topBar = { TopAppBar(scrollBehavior = scrollBehavior)}
     ) {
-        Surface (
+        Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
-        ){
+        ) {
             PengelolaHalaman()
         }
     }
@@ -67,7 +67,7 @@ fun TopAppBarKontak(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = Modifier){
+fun TopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         scrollBehavior = scrollBehavior,
         title = {
@@ -75,6 +75,7 @@ fun TopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = Modi
                 text = stringResource(id = R.string.app_name),
                 style = MaterialTheme.typography.headlineSmall
             )
-        }, modifier = modifier
+        },
+        modifier = modifier
     )
 }

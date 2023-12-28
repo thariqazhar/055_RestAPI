@@ -21,7 +21,8 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(DestinasiHome.route) {
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
-                onDetailClick = {})
+                onDetailClick = {}
+            )
         }
         composable(DestinasiEntry.route) {
             EntryKontakScreen(

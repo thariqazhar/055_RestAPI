@@ -14,7 +14,7 @@ interface KontakRepository {
 
     suspend fun deleteKontak(id: Int)
 
-    suspend fun getkontaById(id: Int): Kontak
+    suspend fun getKontakById(id: Int): Kontak
 }
 
 class NetworkKontakRepository(
@@ -46,7 +46,7 @@ class NetworkKontakRepository(
         }
     }
 
-    override suspend fun getkontaById(id: Int): Kontak {
+    override suspend fun getKontakById(id: Int): Kontak {
         return kontakApiService.getKontakById(id)
     }
 }
