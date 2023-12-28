@@ -18,6 +18,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +33,9 @@ import com.example.kontak.ui.home.viewmodel.KontakUIState
 
 @Composable
 fun HomeScreen(
-    kontakUIState: KontakUIState, retryAction: () -> Unit, modifier: Modifier = Modifier
+    kontakUIState: KontakUIState,
+    retryAction: () -> Unit,
+    modifier: Modifier = Modifier
 ){
     when (kontakUIState){
         is KontakUIState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
@@ -88,7 +91,8 @@ fun KontakLayout(
 @Composable
 fun KontakCard(
     kontak: Kontak,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onDeleteClick: (Kontak) -> Unit = {}
 ){
     Card(
         modifier = modifier,
@@ -107,10 +111,12 @@ fun KontakCard(
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Default.Phone,
-                    contentDescription = null,
-                )
+                IconButton(onClick = { onDeleteClick(kontak) }) {
+                    Icon(
+                        imageVector = Icons.Default.Phone,
+                        contentDescription = null,
+                    )
+                }
                 Text(
                     text = kontak.nohp,
                     style = MaterialTheme.typography.titleMedium,
