@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.kontak.ui.home.viewmodel.InsertUiEvent
+import com.example.kontak.ui.home.viewmodel.InsertUiState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,9 +53,25 @@ fun FormInputSiswa(
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled
         )
+        if (enabled) {
+            Text(
+                text = "Isi semua data",
+                modifier = Modifier.padding(start = 12.dp)
+            )
+        }
         Divider(
             thickness = 8.dp,
             modifier = Modifier.padding(bottom = 12.dp)
         )
     }
+}
+
+@Composable
+fun EntryKontakBody(
+    insertUiState: InsertUiState,
+    onKontakValueChange: (InsertUiEvent) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+
 }
