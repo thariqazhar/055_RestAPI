@@ -38,10 +38,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.kontak.R
 import com.example.kontak.model.Kontak
 import com.example.kontak.navigation.DestinasiNavigasi
-import com.example.kontak.ui.PenyediaViewModel
 import com.example.kontak.ui.TopAppBarKontak
 import com.example.kontak.ui.home.viewmodel.HomeViewModel
 import com.example.kontak.ui.home.viewmodel.KontakUIState
+import com.example.kontak.ui.home.viewmodel.PenyediaViewModel
 
 object DestinasiHome : DestinasiNavigasi {
     override val route = "home"
